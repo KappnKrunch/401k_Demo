@@ -27,6 +27,5 @@ A full-stack web application for managing 401(k) contribution settings with real
 
 1. **Clone and setup backend:**
    ```bash
-   cd backend
    npm install
-   npm start
+   npm run dev
