@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f5f6fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.app-header h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.app-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e8ed;
+}
+
+.card h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+/* YTD Summary */
+.ytd-summary {
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.ytd-summary h2 {
+  color: white;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.ytd-amount {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* Contribution Settings */
+.contribution-type {
+  margin-bottom: 30px;
+}
+
+.contribution-type label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-buttons button {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #bdc3c7;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.toggle-buttons button.active {
+  border-color: #3498db;
+  background: #3498db;
+  color: white;
+}
+
+.toggle-buttons button:hover:not(.active) {
+  border-color: #3498db;
+  background: #ecf0f1;
+}
+
+.contribution-slider {
+  margin-bottom: 30px;
+}
+
+.contribution-slider label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.contribution-slider input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.contribution-slider input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3498db;
+  cursor: pointer;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.manual-input {
+  margin-top: 20px;
+}
+
+.manual-input label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-group input {
+  padding: 12px;
+  border: 2px solid #bdc3c7;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 150px;
+}
+
+.input-group span {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Retirement Impact */
+.retirement-impact {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.impact-details p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.impact-note {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Recent Contributions */
+.contributions-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.contribution-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.contribution-item:last-child {
+  border-bottom: none;
+}
+
+.contribution-item .date {
+  color: #7f8c8d;
+}
+
+.contribution-item .amount {
+  font-weight: 600;
+  color: #27ae60;
+}
+
+/* Loading states */
+input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-header h1 {
+    font-size: 2rem;
+  }
+  
+  .toggle-buttons {
+    flex-direction: column;
+  }
+}
+
+.recent-contributions {
+  grid-column: 1 / -1;
+}
+
+.recent-contributions .contributions-list {
+  max-height: 200px;
+}
+
